@@ -2,9 +2,10 @@
 from fastapi import FastAPI,BackgroundTasks
 # 自定义模块
 from fastapi.middleware.cors import CORSMiddleware
-from amhs_sjtu.tc_main import *
+from amhs import *
 
 # 参数表
+
 app = FastAPI()
 Tc = Amhs()
 app.add_middleware(
