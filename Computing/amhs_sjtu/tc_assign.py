@@ -2,8 +2,8 @@ import networkx as nx
 import time
 import math
 
-import tc_out
-import tc_in
+from tc_out import *
+from tc_in import *
 
 
 def task_assign(p):
@@ -20,7 +20,7 @@ def task_assign(p):
             start, end = terminus_select(j, v0, p, v)
             v.vehicle_assigned = veh
             v.delivery_route = shortest_path(start, end, p, v)
-            tc_out.output_new(p, k, v)
+            output_new(p, k, v)
             v.finished = 1
         if v.finished == 1:
             n += 1
@@ -32,9 +32,9 @@ def task_assign_new(p):
     t = time.process_time()
     while p.runBool:
         # refresh vehicles
-        p = tc_in.vehicle_load(p)
+        p = vehicle_load(p)
         # refresh tasks
-        p = tc_in.read_instructions(p)
+        p = read_instructions(p)
         # revise map info
         p.map_info = revise_map_info(p)
         # refresh before assigning
@@ -46,7 +46,7 @@ def task_assign_new(p):
                 start, end = terminus_select(j, v0, p, v)
                 v.vehicle_assigned = veh
                 v.delivery_route = shortest_path(start, end, p, v)
-                tc_out.output_new(p, k, v)
+                output_new(p, k, v)
                 v.finished = 1
             if v.finished == 1:
                 n += 1

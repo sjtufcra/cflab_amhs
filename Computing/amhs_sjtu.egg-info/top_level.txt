@@ -1,2 +1,0 @@
-amhs_sjtu
-server
