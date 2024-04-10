@@ -2,8 +2,8 @@ import networkx as nx
 import time
 import math
 
-from tc_out import *
-from tc_in import *
+from .tc_out import *
+from .tc_in import *
 
 
 def task_assign(p):
