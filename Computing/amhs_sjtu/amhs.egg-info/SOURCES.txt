@@ -1,0 +1,7 @@
+setup.py
+amhs.egg-info/PKG-INFO
+amhs.egg-info/SOURCES.txt
+amhs.egg-info/dependency_links.txt
+amhs.egg-info/entry_points.txt
+amhs.egg-info/requires.txt
+amhs.egg-info/top_level.txt
