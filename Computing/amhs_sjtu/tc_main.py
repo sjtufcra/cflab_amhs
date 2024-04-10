@@ -2,7 +2,6 @@ import tc_class_sets
 import tc_in
 import tc_assign
 import tc_out
-import warnings
 
 class Amhs():
     def __init__(self) -> None:
