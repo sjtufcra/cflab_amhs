@@ -70,7 +70,7 @@ def vehicle_load(p):
                 p.vehicle_jam[sp, ep] = 1
             else:
                 p.vehicle_jam[sp, ep] += 1
-    print('Available vehicles number is', len(vehicles))
+    # print('Available vehicles number is', len(vehicles))
     p.vehicles = vehicles
     return p
 
@@ -145,10 +145,13 @@ def read_instructions(p):
     # oracle
     p.db_cursor.execute('SELECT * FROM TRANSFER_TABLE WHERE STATUS=0 and VEHICLE=0')
     df = pd.DataFrame(p.db_cursor.fetchall())
-    if len(df) == 0:
-        exit('All tasks have finished :)')
-    else:
-        print('Tasks number is', len(df))
+    # debuger
+    # if len(df) == 0:
+    #     pass
+    #     exit('All tasks have finished :)')
+    # else:
+    #     pass
+    #     # print('Tasks number is', len(df))
     n = 0
     for i in df.index:
         tmp = p.Task()

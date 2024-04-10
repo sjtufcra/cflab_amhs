@@ -26,16 +26,12 @@ def task_assign(p):
             v.finished = 1
         if v.finished == 1:
             n += 1
-        # else:
-        #     print('No available vehicles for {}'.format(v.id))
-    print('Assigned task number is', n)
     return p
 
 
 def task_assign_new(p):
     g, max_g = 1, 6
     t = time.process_time()
-    print('Begin assignment round {}'.format(g))
     while g < max_g:
         # refresh vehicles
         p = tc_in.vehicle_load(p)
@@ -57,12 +53,9 @@ def task_assign_new(p):
                 v.finished = 1
             if v.finished == 1:
                 n += 1
-        print('Round {} settles {} tasks'.format(g, n))
         g += 1
         time.sleep(0.5)
 
-    print('End assignment')
-    print('Assigning tasks costs', time.process_time() - t, 's')
     return p
 
 
@@ -126,7 +119,8 @@ def path_check(path, p, task_id):
     for i in range(len(path) - 1):
         idx = path[i:i + 2]
         if not p.map_info.edges.get(idx):
-            print('Mission {} path error'.format(task_id))
+            pass
+            # print('Mission {} path error'.format(task_id))
     return 0
 
 
