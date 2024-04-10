@@ -1,7 +1,5 @@
-import pandas as pd
 import networkx as nx
 import time
-import copy
 import math
 
 import tc_out

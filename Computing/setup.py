@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='amhs',
+    name='amhs_sjtu',
     version='1.0.0',
     author='cf_lab',
     url="https://github.com/sjtufcra/cflab_amhs.git",
