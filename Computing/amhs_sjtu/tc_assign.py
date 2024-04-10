@@ -32,7 +32,7 @@ def task_assign(p):
 def task_assign_new(p):
     g, max_g = 1, 6
     t = time.process_time()
-    while g < max_g:
+    while p.runBool:
         # refresh vehicles
         p = tc_in.vehicle_load(p)
         # refresh tasks
@@ -43,7 +43,6 @@ def task_assign_new(p):
         p.used_vehicle = set()
         j, n = 0, 0
         for k, v in p.orders.items():
-            # specific position of task
             if v.finished == 0:
                 veh, v0 = vehicle_select(v, p)
                 start, end = terminus_select(j, v0, p, v)
@@ -54,8 +53,6 @@ def task_assign_new(p):
             if v.finished == 1:
                 n += 1
         g += 1
-        time.sleep(0.5)
-
     return p
 
 

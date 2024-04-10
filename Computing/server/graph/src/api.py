@@ -1,12 +1,10 @@
 
-from fastapi import FastAPI
+from fastapi import FastAPI,BackgroundTasks
 # 自定义模块
-from server.graph.src.data import *
 from fastapi.middleware.cors import CORSMiddleware
-
+# from src.tc_main import *
 # 参数表
 app = FastAPI()
-Gdata = Data()
    
 app.add_middleware(
     CORSMiddleware,
@@ -16,31 +14,25 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 直接获取路径
-@app.post('/getpath/')
-def getPath(data:dict):
-    start = Gdata.nodes[data.get('start')]
-    end = Gdata.nodes[data.get('end')]
-    graph = Gdata.Graph
-    graph.set_start_and_goal(start,end)
-    try:
-        astart = AStar()
-        shortest_path_nodes = astart.a_star_search(graph)
-        corrd = [node.coordinates for node in shortest_path_nodes]
-        return corrd
-    except ValueError as e:
-        print(e)
+# 开始服务
+@app.post('/start/')
+def restart(data:dict,bsk:BackgroundTasks):
+    start()
+    return 
 
-@app.get('/getNodes/')
-def getNodes():
-    if Gdata.nodes is None:
-        return []
-    node = json.dumps(Gdata.nodes,cls=NodeEncoder)
-    return node
 
-@app.get('/getEdges/')
-def getEdges():
-    if Gdata.edges is None:
-        return []
-    edge = json.dumps(Gdata.edges,cls=EdgeEncoder)
-    return edge
+# 终止服务
+@app.post('/end/')
+def gameOver(data:dict,bsk:BackgroundTasks):
+    return 
+
+# 暂停服务
+@app.post('/stop/')
+def stop(data:dict,bsk:BackgroundTasks):
+
+    return
+
+# 恢复服务
+@app.post('/continue/')
+def restart(data:dict,bsk:BackgroundTasks):
+    return 
