@@ -21,7 +21,11 @@ app.add_middleware(
 def restart(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
     bsk(Tc.start)
-    return 
+    backdata =  {
+        "code": 200,
+        'message':'Success!'
+    }
+    return backdata
 
 
 # 终止服务
@@ -29,7 +33,11 @@ def restart(data:dict,bsk:BackgroundTasks):
 def gameOver(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
     bsk(Tc.over)
-    return 
+    backdata =  {
+        "code": 200,
+        'message':'Over!'
+    }
+    return backdata
 
 # 暂停服务
 @app.post('/stop/')
@@ -38,7 +46,12 @@ def stop(data:dict,bsk:BackgroundTasks):
     status = data.get('status') | False
     
     bsk(Tc.stop,status)
-    return
+    backdata =  {
+        "code": 200,
+        'message':'Stop!',
+        'bool':status
+    }
+    return backdata
 
 # 恢复服务
 @app.post('/continue/')
@@ -47,4 +60,9 @@ def restart(data:dict,bsk:BackgroundTasks):
     
     status = data.get('status') | True
     bsk(Tc.setRunBool,status)
-    return 
+    backdata =  {
+        "code": 200,
+        'message':'Resume!',
+        'bool':status
+    }
+    return backdata
