@@ -25,7 +25,6 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'your_script_name = your_package_name.module_name:main_function',
         ],
     },
 )
