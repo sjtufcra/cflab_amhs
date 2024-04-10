@@ -4,4 +4,4 @@ pandas
 networkx
 oracledb
 redis
-rediscluster
+redis-py-cluster
