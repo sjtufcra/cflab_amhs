@@ -2,7 +2,7 @@
 from fastapi import FastAPI,BackgroundTasks
 # 自定义模块
 from fastapi.middleware.cors import CORSMiddleware
-from amhs import *
+from amhs_sjtu.tc_main import *
 
 # 参数表
 
@@ -19,6 +19,7 @@ app.add_middleware(
 # 开始服务
 @app.post('/start/')
 def restart(data:dict,bsk:BackgroundTasks):
+    id = data.get('id')
     bsk(Tc.start)
     return 
 
@@ -26,17 +27,24 @@ def restart(data:dict,bsk:BackgroundTasks):
 # 终止服务
 @app.post('/over/')
 def gameOver(data:dict,bsk:BackgroundTasks):
+    id = data.get('id')
     bsk(Tc.over)
     return 
 
 # 暂停服务
 @app.post('/stop/')
 def stop(data:dict,bsk:BackgroundTasks):
-    bsk(Tc.stop,False)
+    id = data.get('id')
+    status = data.get('status') | False
+    
+    bsk(Tc.stop,status)
     return
 
 # 恢复服务
 @app.post('/continue/')
 def restart(data:dict,bsk:BackgroundTasks):
-    bsk(Tc.setRunBool,True)
+    id = data.get('id')
+    
+    status = data.get('status') | True
+    bsk(Tc.setRunBool,status)
     return 
