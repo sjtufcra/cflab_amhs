@@ -18,7 +18,7 @@ def read_yaml_config(file_path):
 # 实例化
 config = read_yaml_config(config_file_path)
 app = FastAPI()
-Tc = Amhs(config)
+Tc = Amhs(config.get('httpServer'))
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
