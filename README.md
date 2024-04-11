@@ -1,7 +1,7 @@
 
 1.安装python环境
     a.手动安装环境
-    cd Computing/dist/
+    cd computing/dist/
     pip install amhs_sjtu-1.0.0.tar.gz
     注意：
         手动安装要在包目录下执行命令
