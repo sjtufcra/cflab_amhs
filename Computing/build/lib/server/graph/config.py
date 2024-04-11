@@ -11,4 +11,4 @@ httpServer = dict(uname ='0.0.0.0',
     reloade =True)
 
 # 算法参数
-config_file_path= '../../../config.yaml'
+config_file_path= 'cflab_amhs/config.yaml'
