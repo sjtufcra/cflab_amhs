@@ -23,9 +23,5 @@ setup(
         "redis",  
         "redis-py-cluster",
         "pyyaml"
-    ],
-    entry_points={
-        'console_scripts': [
-        ],
-    },
+    ]
 )
