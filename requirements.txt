@@ -6,3 +6,4 @@ oracledb
 redis
 redis-py-cluster 
 setuptools
+yaml

@@ -1,16 +1,23 @@
 
 1.安装python环境
     a.手动安装环境
-    pip install -r requirements.txt
+    cd Computing/dist/
+    pip install amhs_sjtu-1.0.0.tar.gz
     注意：
-        手动安装也要执行安装 amhs_sjtu  命令
+        手动安装要在包目录下执行命令
     
     b.命令安装环境
-        cd Computing/dist/
-        pip install amhs_sjtu-1.0.0.tar.gz
+        1.Linux 和 MacOS 下执行
+            sh install.sh
+        2.Windows 下执行
+            install.bat
 
-2.运行脚本
-sh run.sh
+2.运行服务脚本
+    
+        A.Linux 和 MacOS 下执行
+            sh run.sh
+        B.Windows 下执行
+            run.bat
 
 3.服务说明
     在正常启动服务后，会有以下输出
@@ -56,3 +63,6 @@ sh run.sh
         返回：code、message,status
     
 注意：这里的id 值时必填值，实际使用时，需要替换成自己的id
+
+
+5.config.yaml 配置文件说明
