@@ -43,8 +43,8 @@ def gameOver(data:dict,bsk:BackgroundTasks):
 @app.post('/stop/')
 def stop(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
-    status = data.get('status') | False
-    
+    arg = data.get('status')
+    status = arg if arg is None else False
     bsk(Tc.stop,status)
     backdata =  {
         "code": 200,
@@ -57,8 +57,8 @@ def stop(data:dict,bsk:BackgroundTasks):
 @app.post('/continue/')
 def restart(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
-    
-    status = data.get('status') | True
+    arg = data.get('status')
+    status = arg if arg is None else True
     bsk(Tc.setRunBool,status)
     backdata =  {
         "code": 200,
