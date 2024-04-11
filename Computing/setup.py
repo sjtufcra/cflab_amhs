@@ -21,7 +21,9 @@ setup(
         'networkx',
         'oracledb',
         "redis",  
-        "redis-py-cluster",  
+        "redis-py-cluster",
+        "pyyaml"
+
     ],
     entry_points={
         'console_scripts': [
