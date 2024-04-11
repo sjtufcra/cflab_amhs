@@ -25,7 +25,6 @@ setup(
         "pyyaml"
     ],
     entry_points={
-        'console_scripts': [
-        ],
+        'console_scripts': ['console_script = dnsrep:main'],
     },
 )
