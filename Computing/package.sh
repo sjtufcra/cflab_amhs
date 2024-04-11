@@ -1,3 +1,2 @@
-echo "installing amhs_sjtu"
-echo 'version $0'
-python setup.py $0 sdist
+echo "pak gen sucess, please install amhs_sjtu"
+python setup.py sdist
