@@ -3,19 +3,16 @@ import yaml
 import os 
 from fastapi import FastAPI,BackgroundTasks
 
-# 自定义模块
 from fastapi.middleware.cors import CORSMiddleware
 from sjtu_amhs.tc_main import *
 from config import *
 
-# 参数表
 def read_yaml_config(file_path):
     path = os.path.abspath(file_path)
     with open(path, 'r', encoding='utf-8') as file:
         config_data = yaml.safe_load(file)
     return config_data
 
-# 实例化
 config = read_yaml_config(config_file_path)
 app = FastAPI()
 Tc = Amhs(config.get('httpServer'))
@@ -27,7 +24,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 开始服务
 @app.post('/start/')
 def restart(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
@@ -39,7 +35,6 @@ def restart(data:dict,bsk:BackgroundTasks):
     return backdata
 
 
-# 终止服务
 @app.post('/over/')
 def gameOver(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
@@ -50,7 +45,6 @@ def gameOver(data:dict,bsk:BackgroundTasks):
     }
     return backdata
 
-# 暂停服务
 @app.post('/stop/')
 def stop(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
@@ -64,7 +58,6 @@ def stop(data:dict,bsk:BackgroundTasks):
     }
     return backdata
 
-# 恢复服务
 @app.post('/continue/')
 def restart(data:dict,bsk:BackgroundTasks):
     id = data.get('id')

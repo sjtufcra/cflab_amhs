@@ -67,3 +67,14 @@
 
 5.config.yaml 配置文件说明
     详见内部配置文件表及相关字段
+
+6.其他问题
+    1.如果启动服务报错，ModuleNotFoundError: No module named *****
+        1.1.确保python环境已经安装
+        1.2.检查No module named ***** 安装路径
+            pip show *****
+        1.2.检查python环境安装路径，是否包含上述路径
+            python -c "import sys; print(sys.path)"
+        1.3.如果上述路径不存在，则需要手动添加
+            export PYTHONPATH=/path/to/*****:$PYTHONPATH
+        
