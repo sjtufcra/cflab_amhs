@@ -4,6 +4,7 @@ class Server():
         config = uvicorn.Config(paths, host=uname, port=ports, log_level=log,reload=reloade)
         server = uvicorn.Server(config)
         self.server = server
+        
     
     def run(self):
         self.server.run()
