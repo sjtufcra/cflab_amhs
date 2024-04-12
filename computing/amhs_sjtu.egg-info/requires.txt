@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-pandas
-networkx
-oracledb
-redis
-redis-py-cluster
-pyyaml
