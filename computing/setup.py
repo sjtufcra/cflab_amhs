@@ -5,7 +5,7 @@ setup(
     version='1.0.0',
     author='cf_lab',
     url="https://github.com/sjtufcra/cflab_amhs.git",
-    packages=find_packages(where='amhs_sjtu'),
+    packages=find_packages('amhs_sjtu'),
     description="用于规划一个寻优路径",  
     long_description_content_type="text/markdown",
     classifiers=[
@@ -14,7 +14,6 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6", 
-    # package_dir={'':'amhs_sjtu'},
     install_requires=[  
         'fastapi',
         'uvicorn',
@@ -29,3 +28,5 @@ setup(
     #     'console_scripts': ['run = server.graph.main:main'],
     # },
 )
+
+
