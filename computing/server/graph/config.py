@@ -4,4 +4,4 @@ httpServer = dict(uname ='0.0.0.0',
     log = 'info',
     reloade =True)
 
-config_file_path= 'cflab_amhs/config.yaml'
+config_file_path= 'config.yaml'
