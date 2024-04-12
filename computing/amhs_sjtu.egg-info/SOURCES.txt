@@ -1,0 +1,6 @@
+setup.py
+amhs_sjtu.egg-info/PKG-INFO
+amhs_sjtu.egg-info/SOURCES.txt
+amhs_sjtu.egg-info/dependency_links.txt
+amhs_sjtu.egg-info/requires.txt
+amhs_sjtu.egg-info/top_level.txt
