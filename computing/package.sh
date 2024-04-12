@@ -1,3 +1,3 @@
 echo "pak gen sucess, please install amhs_sjtu"
-python setup.py build
-python setup.py sdist
+python3 setup.py build
+python3 setup.py sdist

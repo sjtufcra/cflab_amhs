@@ -4,7 +4,7 @@ import os
 from fastapi import FastAPI,BackgroundTasks
 
 from fastapi.middleware.cors import CORSMiddleware
-from sjtu_amhs.tc_main import *
+from amhs_sjtu.tc_main import *
 from config import *
 
 def read_yaml_config(file_path):
