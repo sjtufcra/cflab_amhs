@@ -70,3 +70,7 @@ def restart(data:dict,bsk:BackgroundTasks):
         'bool':status
     }
     return backdata
+
+@app.get('/')
+def read_root():
+    return {'Hello': 'World'}
