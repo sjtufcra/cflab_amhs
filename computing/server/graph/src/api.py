@@ -27,7 +27,7 @@ app.add_middleware(
 @app.post('/start/')
 def restart(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
-    bsk(Tc.start)
+    bsk.add_task(Tc.start)
     backdata =  {
         "code": 200,
         'message':'Success!'
@@ -38,7 +38,7 @@ def restart(data:dict,bsk:BackgroundTasks):
 @app.post('/over/')
 def gameOver(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
-    bsk(Tc.over)
+    bsk.add_task(Tc.over)
     backdata =  {
         "code": 200,
         'message':'Over!'
@@ -50,7 +50,7 @@ def stop(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
     arg = data.get('status')
     status = arg if arg is None else False
-    bsk(Tc.stop,status)
+    bsk.add_task(Tc.stop,status)
     backdata =  {
         "code": 200,
         'message':'Stop!',
@@ -63,7 +63,7 @@ def restart(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
     arg = data.get('status')
     status = arg if arg is None else True
-    bsk(Tc.setRunBool,status)
+    bsk.add_task(Tc.setRunBool,status)
     backdata =  {
         "code": 200,
         'message':'Resume!',
