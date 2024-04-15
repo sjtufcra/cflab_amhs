@@ -15,7 +15,6 @@ def read_yaml_config(file_path):
 
 config = read_yaml_config(config_file_path)
 app = FastAPI()
-print(config.get('httpServer'))
 Tc = Amhs(config.get('httpServer'))
 app.add_middleware(
     CORSMiddleware,
@@ -51,7 +50,7 @@ def stop(data:dict,bsk:BackgroundTasks):
     id = data.get('id')
     arg = data.get('status')
     status = arg if arg is None else False
-    bsk.add_task(Tc.stop,status)
+    bsk.add_task(Tc.setRunBool,status)
     backdata =  {
         "code": 200,
         'message':'Stop!',
