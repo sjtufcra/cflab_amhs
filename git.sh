@@ -1,5 +1,5 @@
 git add .
-git commit -am 'fix: bug'
+git commit -am $1
 git pull
 git push
-echo "push"
+echo "push content: success!"
