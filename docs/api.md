@@ -17,11 +17,11 @@ curl --location 'http://0.0.0.0:8055/over/' \
 }'
 
 ###暂停服务接口
-curl --location '/continue/' \
+curl --location '/stop/' \
 --header 'Content-Type: application/json' \
 --data '{
     "id":123,
-    "status":true,
+    "status":flase,
     "message":""
 
 }'
