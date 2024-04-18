@@ -6,3 +6,8 @@ httpServer = dict(uname ='0.0.0.0',
 
 # config_file_path= '/Users/dannier/sjtufcra/cflab_amhs/config.yaml'  #debugger
 config_file_path= 'config.yaml'
+
+# 日志目录
+log_path = './log'
+log_name = 'server.log'
+log_level = 'INFO'

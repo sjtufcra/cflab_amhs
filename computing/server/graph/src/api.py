@@ -1,18 +1,30 @@
 
 import yaml
 import os 
+import asyncio
 from fastapi import FastAPI,BackgroundTasks
 
 from fastapi.middleware.cors import CORSMiddleware
+from loguru import logger as log
 from amhs.tc_main import *
 from config import *
 
+# config file
 def read_yaml_config(file_path):
     path = os.path.abspath(file_path)
     with open(path, 'r', encoding='utf-8') as file:
         config_data = yaml.safe_load(file)
     return config_data
+# logger config
+# async def async_log_writer(message):
+#     log_file_path = os.path.join(log_path, log_name)  
+#     with open(log_file_path, "a", encoding="utf-8") as log_file:
+#         await asyncio.sleep(0.1)  
+#         log_file.write(f"{message}\n")
 
+log.remove()
+log.add(os.path.join(log_path, log_name),level=log_level)
+# log.add(async_log_writer,level=log_level)
 config = read_yaml_config(config_file_path)
 app = FastAPI()
 Tc = Amhs(config.get('httpServer'))
