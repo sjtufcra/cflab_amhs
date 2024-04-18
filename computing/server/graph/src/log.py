@@ -31,4 +31,4 @@ class AsyncBufferedLogWriter:
         finally:
             self.buffer.clear()
             self.last_flush_time = asyncio.get_event_loop().time()
-   async_log_writer = AsyncBufferedLogWriter(os.path.join(log_directory, "server.log"))
+#    async_log_writer = AsyncBufferedLogWriter(os.path.join(log_directory, "server.log"))
