@@ -17,7 +17,7 @@ def read_yaml_config(file_path):
 config = read_yaml_config(config_file_path)
 # log add
 log.remove()
-log.add('server.log',level='INFO')
+log.add(log_name,level=log_level)
 app = FastAPI()
 Tc = Amhs(config.get('httpServer'))
 app.add_middleware(

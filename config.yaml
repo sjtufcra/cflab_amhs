@@ -17,3 +17,11 @@ httpServer:
 
     # slecet-path 1 or 2
     algorithm_on: 1
+
+    # load data
+    mapPath: 'data/OHTC_MAP_202404191001.json'
+    positionPath: 'data/OHTC_POSITION_202404191001.json'
+    order_on: 1 # 1: load local order data, 0: don't load local order data
+    order_path: 'data/TRANSFER_TABLE_202404191002.json'
+    # reload map data
+    build_map: 1
