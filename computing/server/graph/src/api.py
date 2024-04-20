@@ -12,6 +12,7 @@ def read_yaml_config(file_path):
     path = os.path.abspath(file_path)
     with open(path, 'r', encoding='utf-8') as file:
         config_data = yaml.safe_load(file)
+        
     return config_data
 
 config = read_yaml_config(config_file_path)
