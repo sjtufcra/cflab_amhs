@@ -1,3 +1,4 @@
+# offline config
 httpServer = dict(uname ='0.0.0.0',
     paths = "src.api:app",
     ports = 8055,
@@ -8,7 +9,7 @@ httpServer = dict(uname ='0.0.0.0',
 config_file_path= 'config.yaml'
 
 
-# 日志目录
+# log config
 log_path = './log'
 log_name = 'server.log'
 log_level = 'INFO'

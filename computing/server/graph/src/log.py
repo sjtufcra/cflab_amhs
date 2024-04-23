@@ -1,34 +1,39 @@
-import asyncio
-import os 
-from collections import deque
-from datetime import timedelta
-from aiofiles import open as aio_open
+import sqlite3
+from loguru import logger
 
-class AsyncBufferedLogWriter:
-    def __init__(self, log_file_path, flush_interval=timedelta(seconds=10), max_buffer_size=1000):
-        self.log_file_path = log_file_path
-        self.flush_interval = flush_interval
-        self.max_buffer_size = max_buffer_size
-        self.buffer = deque(maxlen=max_buffer_size)
-        self.last_flush_time = asyncio.get_event_loop().time()
+class SQLiteSink:
+    def __init__(self, db_path: str):
+        self.conn = sqlite3.connect(db_path)
+        self.cursor = self.conn.cursor()
 
-    async def write(self, message):
-        self.buffer.append(message)
-        if len(self.buffer) >= self.max_buffer_size or (asyncio.get_event_loop().time() - self.last_flush_time) >= self.flush_interval.total_seconds():
-            await self._flush()
+    def __call__(self, message):
+        record = message.record
 
-    async def _flush(self):
-        if not self.buffer:
-            return
+        # 构建插入数据的字典
+        data = {
+            "timestamp": record["time"].strftime("%Y-%m-%d %H:%M:%S.%f"),
+            "level": record["level"].name,
+            "message": record["message"],
+        }
+        if record["exception"]:
+            data["exception"] = repr(record["exception"])
 
-        try:
-            async with aio_open(self.log_file_path, "a", encoding="utf-8") as log_file:
-                for message in self.buffer:
-                    await log_file.write(f"{message}\n")
-        except Exception as e:
-            # other errors
-            pass
-        finally:
-            self.buffer.clear()
-            self.last_flush_time = asyncio.get_event_loop().time()
-#    async_log_writer = AsyncBufferedLogWriter(os.path.join(log_directory, "server.log"))
+        # 执行 SQL 插入语句
+        columns = ",".join(data.keys())
+        placeholders = ",".join("?" * len(data))
+        sql = f"INSERT INTO logs ({columns}) VALUES ({placeholders})"
+        self.cursor.execute(sql, tuple(data.values()))
+
+        self.conn.commit()
+
+    def close(self):
+        self.conn.close()
+
+# examples/sqlite_sink.py
+# # 使用自定义日志处理器
+# db_sink = SQLiteSink("app_log.db")
+# logger.add(db_sink, backtrace=True, diagnose=True)
+
+# # 开始记录日志
+# logger.info("This is an info message.")
+# logger.error("An error occurred.", exc_info=True)
