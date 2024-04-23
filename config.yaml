@@ -28,11 +28,10 @@ httpServer:
 # local server's parameter
 localServer:
     # MySQL linking
-    mysql_connection:
-        host: '127.0.0.1'
-        port: 3306
-        user: 'root'
-        password: 'Zhang123.'
+    oracle_dsn: '127.0.0.1'
+    port: 3306
+    oracle_user: 'root'
+    oracle_password: 'Zhang123.'
 
     mysql_database:
         database: 'amhs'

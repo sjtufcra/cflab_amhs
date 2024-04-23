@@ -4,6 +4,7 @@ import os
 from fastapi import FastAPI,BackgroundTasks
 
 from fastapi.middleware.cors import CORSMiddleware
+# from amhs.tc_main import *
 from amhs.tc_main import *
 from config import *
 from loguru import logger as log
@@ -17,23 +18,24 @@ def read_yaml_config(file_path):
     return config_data
 # check mode
 def check_config(config):
-    if config.get('runing_mode') is None:
+    
+    if config.get(runmode) is None:
         return config.get('httpServer')
     else:
-        if config.get('runing_mode') == 1:
-            return config.get('httpServer')
+        if config.get(runmode) == 1:
+            return config.get(server)
         else:
-            return config.get('localServer')
+            return config.get(local)
 
 config = read_yaml_config(config_file_path)
-mode = check_config()
+mode = check_config(config)
 
 # log add
 log.remove()
 log.add(log_name,level=log_level)
 
 app = FastAPI()
-Tc = Amhs(config.get('httpServer'))
+Tc = Amhs(mode)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

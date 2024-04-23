@@ -5,8 +5,15 @@ httpServer = dict(uname ='0.0.0.0',
     log = 'info',
     reloade =True)
 
-# config_file_path= '/Users/dannier/sjtufcra/cflab_amhs/config.yaml'  #debugger
-config_file_path= 'config.yaml'
+config_file_path= '/Users/dannier/sjtufcra/cflab_amhs/config.yaml'  #debugger
+
+# config_file_path= 'config.yaml' #online
+
+# set run mode
+runmode = 'runing_mode'
+
+server = 'httpServer'  #online
+local = 'localServer' #local
 
 
 # log config
