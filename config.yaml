@@ -1,5 +1,5 @@
 # mode's parameter
-runing_mode: 1 # 0: local mode, 1: server mode
+runing_mode: 0 # 0: local mode, 1: server mode
 
 # server's parameter
 httpServer:
@@ -7,6 +7,9 @@ httpServer:
     oracle_user: 'wf2prodmoc'
     oracle_password: 'wf2moc_22FAB2'
     oracle_dsn: '10.34.58.15:1521/f2wdb'
+
+    # default is amhs
+    database: 'amhs'
 
     # redis linking
     rds_connection: '10.34.58.42'
@@ -18,7 +21,7 @@ httpServer:
     # or 0, just run once
     circulating_on: 1
 
-    # slecet-path 1 or 2
+    # algorithm mode : 1, 2, 3, 4 ;deaulft is 1,A* algorithm is 2, A*+Dijkstra algorithm is 3, Dynamic Programming, DP is 4
     algorithm_on: 1
 
     # load data
@@ -26,13 +29,16 @@ httpServer:
     # online
     mode: 1
 
+    # server's parameter
+    use_multiprocessing: True
+
 # local server's parameter
 localServer:
     # MySQL linking
     oracle_dsn: '127.0.0.1'
     port: 3306
     oracle_user: 'root'
-    oracle_password: 'xxxxxxxx'
+    oracle_password: 'Zhang123.'
     database: 'amhs'
 
     mysql_database:
@@ -49,8 +55,8 @@ localServer:
     # or 0, just run once
     circulating_on: 1
 
-    # slecet-path 1 or 2
-    algorithm_on: 1
+    # algorithm mode : 1, 2, 3, 4 ;deaulft is 1,A* algorithm is 2, A*+Dijkstra algorithm is 3, Dynamic Programming, DP is 4
+    algorithm_on: 4
 
     # load data
     order_on: 1 # 1: load local order data, 0: don't load local order data
@@ -58,3 +64,6 @@ localServer:
     build_map: 1
     # local
     mode: 0
+
+    # local server's parameter
+    use_multiprocessing: True
