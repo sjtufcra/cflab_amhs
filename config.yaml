@@ -1,5 +1,5 @@
 # mode's parameter
-runing_mode: 0 # 0: local mode, 1: server mode
+runing_mode: 1 # 0: local mode, 1: server mode
 
 # server's parameter
 httpServer:
@@ -32,7 +32,7 @@ localServer:
     oracle_dsn: '127.0.0.1'
     port: 3306
     oracle_user: 'root'
-    oracle_password: 'Zhang123.'
+    oracle_password: 'xxxxxxxx'
     database: 'amhs'
 
     mysql_database:
