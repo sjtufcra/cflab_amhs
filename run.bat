@@ -1,3 +1,3 @@
 
-python3 computing/server/graph/main.py &
+python computing/server/graph/main.py &
 echo $! 
