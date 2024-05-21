@@ -7,3 +7,4 @@ redis
 redis-py-cluster 
 setuptools
 pyyaml
+mysql-connector-python

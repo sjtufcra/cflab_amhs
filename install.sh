@@ -7,8 +7,5 @@ else
 fi
 echo "Install amhs_sjtu"
 pip3 install --user computing/dist/amhs_sjtu-1.0.0.tar.gz
-
-
-# # old
-# pip3 uninstall amhs_sjtu -y
-# pip3 install --user computing/dist/amhs_sjtu-1.0.0.tar.gz 
+pip3 install -r requirements.txt
+echo "Install amhs_sjtu success"
