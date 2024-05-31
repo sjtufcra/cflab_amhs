@@ -7,4 +7,7 @@ redis
 redis-py-cluster 
 setuptools
 pyyaml
+numpy
+torch
+torchvision
 mysql-connector-python
