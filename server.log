@@ -1,0 +1,2 @@
+2024-06-01 17:19:41.960 | INFO     | src.api:restart:53 - start server: {'id': 123, 'message': ''}
+2024-06-01 17:19:41.962 | INFO     | amhs.tc_main:start:20 - init success
