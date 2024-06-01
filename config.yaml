@@ -29,6 +29,8 @@ httpServer:
     order_on: 1 # 1: load local order data, 0: don't load local order data
     # online
     mode: 1
+    # task_number
+    task_num: 1
 
     # server's parameter
     use_multiprocessing: False
@@ -65,6 +67,9 @@ localServer:
     build_map: 1
     # local
     mode: 0
+
+    # task_number
+    task_num: 10
 
     # local server's parameter
     use_multiprocessing: False
