@@ -36,4 +36,4 @@ install_command="pip3 install --user amhs_sjtu-$highest_version.tar.gz"
 cd ..
 cd ..
 pip3 install -r requirements.txt
-echo "Install amhs_sjtu success"
+echo "Insptall amhs_sjtu success"
