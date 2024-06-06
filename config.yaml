@@ -31,6 +31,10 @@ httpServer:
     mode: 1
     # task_number
     task_num: 1
+     # control_scenond
+    tts: 2
+
+    database: 'amhs'
 
     # server's parameter
     use_multiprocessing: False
