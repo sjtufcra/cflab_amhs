@@ -30,7 +30,7 @@ httpServer:
     # online
     mode: 1
     # task_number
-    task_num: 1
+    task_num: 10
      # control_scenond
     tts: 2
 
