@@ -31,13 +31,15 @@ httpServer:
     mode: 1
     # task_number
     task_num: 10
-     # control_scenond
+    # control_scenond
     tts: 2
-
-    database: 'amhs'
 
     # server's parameter
     use_multiprocessing: False
+    log: "./unit.log"
+
+    # debug on_off
+    debug_on: False
 
 # local server's parameter
 localServer:
