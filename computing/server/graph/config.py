@@ -19,4 +19,4 @@ local = 'localServer' #local
 # log config
 log_path = './log'
 log_name = 'server.log'
-log_level = 'INFO'
+log_level = 'WARNING'
